@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>डिजिटल ग्राम पंचायत मोपार</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- OneSignal Push Notification SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "आपकी_ONESIGNAL_APP_ID_यहाँ_डालें", 
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- हेडर -->
+  <header>
+    <h1>ग्राम पंचायत मोपार</h1>
+    <p>डिजिटल सूचना एवं सेवा पोर्टल</p>
+  </header>
+
+  <!-- लाइव नोटिस बोर्ड -->
+  <section class="card">
+    <h2>📢 लाइव नोटिस बोर्ड</h2>
+    <div id="notice-content">नोटिस लोड हो रहा है...</div>
+  </section>
+
+  <!-- पंचायत डायरेक्टरी -->
+  <section class="card">
+    <h2>👥 पंचायत डायरेक्टरी</h2>
+    <ul id="panch-list">
+      <li>सरपंच: लोड हो रहा है...</li>
+      <li>सचिव: लोड हो रहा है...</li>
+    </ul>
+  </section>
+
+  <!-- फोटो / वीडियो / शिकायत अपलोड -->
+  <section class="card">
+    <h2>📸 समस्या या फोटो अपलोड करें</h2>
+    <input type="file" id="imageInput" accept="image/*,video/*">
+    <button onclick="uploadMedia()">अपलोड करें</button>
+    <p id="uploadStatus"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
